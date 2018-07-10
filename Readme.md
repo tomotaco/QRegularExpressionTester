@@ -11,6 +11,10 @@ Qt でプログラミングをしている方、手元に正規表現を手軽�
 
 ![動作例](images/QRegularExpressionTester.png)
 
+## 実行ファイルの入手方法
+Windows(x64)用バイナリが bin/win-x64/QRegularExpressionTester.exe にありますのでダウンロードして下さい。
+他のプラットフォームの方は、お手数ですがソースコードからビルドして下さい。
+
 ## 使い方
 - Regular Expression の欄に正規表現を入力して下さい。
 - Test text の欄に試しにマッチさせてみたいテキストを入力して下さい。
@@ -24,7 +28,7 @@ Test text 内にマッチしたテキストが水色でハイライトされま�
 
 が表示されます。
 
-## ビルド方法
+## ソースコードのビルド方法
 Qt Creator が必要となります。(Community版で問題ありません)
 [Qt 公式サイト](https://www.qt.io/)の[ダウンロードページ](https://www.qt.io/download/)からダウンロード・インストールしてください。
 
