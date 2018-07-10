@@ -21,5 +21,12 @@ Test text 内にマッチしたテキストが水色でハイライトされま�
 - 入力した正規表現
 - C/C++ 文字列リテラル内に記述する場合の表記("\"が二重になっています)
 - キャプチャされた文字位置
+
 が表示されます。
+
+## ビルド方法
+Qt Creator が必要となります。(Community版で問題ありません)
+[Qt 公式サイト](https://www.qt.io/)の[ダウンロードページ](https://www.qt.io/download/)からダウンロード・インストールしてください。
+
+Qt Creator を起動したら、src/QRegularExpressionTester.pro を読み込んでビルドして下さい。
 
