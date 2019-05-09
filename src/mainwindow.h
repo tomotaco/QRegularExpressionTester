@@ -22,6 +22,10 @@ private slots:
 
     void on_pushButtonMatch_pressed();
 
+    void on_comboBoxRegExp_editTextChanged(const QString &arg1);
+
+    void on_plainTextEditTestText_textChanged();
+
 private:
     void hilightMatched();
 

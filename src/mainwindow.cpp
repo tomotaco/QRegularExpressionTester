@@ -35,6 +35,12 @@ void MainWindow::hilightMatched()
     QString strLog;
 
     auto textRegExp = ui->comboBoxRegExp->currentText();
+    if (textRegExp.length() == 0) {
+        ui->plainTextEditTestText->setExtraSelections(QList<QTextEdit::ExtraSelection>());
+        ui->plainTextEditLog->setPlainText("");
+        return;
+    }
+
     QRegularExpression regExp(textRegExp);
 
     strLog += "Regular expression: " + textRegExp + "\n";
@@ -68,7 +74,8 @@ void MainWindow::hilightMatched()
         for (int index = 0; index <= lastCapturedIndex; index ++) {
             int indexStart = match.capturedStart(index);
             int indexEnd = match.capturedEnd(index);
-            strLog += "Capture #" + QString::number(index) + ": start=" + QString::number(indexStart) + ", end=" + QString::number(indexEnd) + "\n";
+            auto strCaptured = match.captured(index);
+            strLog += "Capture #" + QString::number(index) + ": start=" + QString::number(indexStart) + ", end=" + QString::number(indexEnd) + ", \"" + strCaptured + "\"" +  "\n";
             QTextCursor cursor(ui->plainTextEditTestText->document());
             cursor.setPosition(indexStart, QTextCursor::MoveMode::MoveAnchor);
             cursor.setPosition(indexEnd, QTextCursor::MoveMode::KeepAnchor);
@@ -82,4 +89,14 @@ void MainWindow::hilightMatched()
     }
     ui->plainTextEditTestText->setExtraSelections(selections);
     ui->plainTextEditLog->setPlainText(strLog);
+}
+
+void MainWindow::on_comboBoxRegExp_editTextChanged(const QString &arg1)
+{
+    hilightMatched();
+}
+
+void MainWindow::on_plainTextEditTestText_textChanged()
+{
+    hilightMatched();
 }
